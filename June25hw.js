@@ -1,6 +1,12 @@
+const newExercise = function (n) {
+  console.log(`<--------- Exercise ${n} --------->`);
+};
+
 /* EXERCISE 1
 Write a function "area" which receives 2 parameters (l1,l2) and calculates the area of the associated rectangle.
 */
+
+newExercise(1);
 
 const area = function (l1, l2) {
   return l1 * l2;
@@ -11,6 +17,8 @@ const area = function (l1, l2) {
 /* EXERCISE 2
 Write a function "crazySum" which receives two integers. It should return the sum of those two values, but if the two values are the same then it should return their sum multiplied by 3.
 */
+
+newExercise(2);
 
 const crazySum = function (i1, i2) {
   if (i1 === i2) {
@@ -27,6 +35,8 @@ const crazySum = function (i1, i2) {
 Write a function "crazyDiff" that computes the absolute difference between a given number and 19. 
 It should return triple their absolute difference if the given number is greater than 19.
 */
+
+newExercise(3);
 
 const crazyDiff = function (number) {
   if (number > 19) {
@@ -45,6 +55,8 @@ const crazyDiff = function (number) {
 /* EXERCISE 4
 Write a function "boundary" which accept an integer n and returns true if n is within 20 and 100 (included) or if it's equal to 400.
 */
+
+newExercise(4);
 
 const boundary = function (n) {
   if ((n >= 20 && n <= 100) || n === 400) {
@@ -68,6 +80,8 @@ Write a function "strivify" which accepts a string.
 It should add the word "Strive" in front of the given string, but if the given string already begins with "Strive", then it should just return the original string.
 */
 
+newExercise(5);
+
 const strivify = function (string) {
   let strivestr = "Strive";
   if (string.slice(0, 6) === strivestr) {
@@ -86,6 +100,8 @@ const strivify = function (string) {
 Write a function "check3and7" which accepts a positive number and check if it is a multiple of 3 or a multiple of 7.
 HINT: Module Operator
 */
+
+newExercise(6);
 
 const check3and7 = function (number) {
   if (number > 0) {
@@ -110,6 +126,8 @@ const check3and7 = function (number) {
 Write a function "reverseString" to programmatically reverse a given string (es.: Strive => evirtS).
 */
 
+newExercise(7);
+
 const reverseString = function (string) {
   let newString = "";
   for (i = string.length; i >= 0; i--) {
@@ -125,6 +143,8 @@ const reverseString = function (string) {
 /* EXERCISE 8
 Write a function "upperFirst" to capitalize the first letter of each word of a given string passed as a parameter.
 */
+
+newExercise(8);
 
 const upperFirst = function (string) {
   let sentenceArray = string.split(" ");
@@ -143,16 +163,20 @@ const upperFirst = function (string) {
 Write a function "cutString" to create a new string without the first and last character of a given string.
 */
 
+newExercise(9);
+
 const cutString = function (string) {
-  let newString = string.slice(1, -1);
-  return newString;
+  return string.slice(1, -1);
 };
 
 // console.log(cutString("!Hello!"));
+// console.log(cutString("!It's Friday then!"));
 
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10.
 */
+
+newExercise(10);
 
 const giveMeRandom = function (n) {
   let randomArray = [];
@@ -173,6 +197,8 @@ Write a function "checkArray" which receives an array of random numbers (created
 The function returns the sum of the numbers bigger than 5.
 */
 
+newExercise(11);
+
 const checkArray = function (n) {
   let array = giveMeRandom(n);
   let finalSum = 0;
@@ -191,6 +217,7 @@ const checkArray = function (n) {
   return finalSum;
 };
 
+// checkArray(5);
 // let checkArrayAnswer = checkArray(5);
 // console.log(checkArrayAnswer);
 
@@ -198,6 +225,8 @@ const checkArray = function (n) {
 In your eCommerce you have an array of objects called shoppingCart. In this array you have a number of objects with a price, a name, an id and the quantity to be shipped.
 Create a function "shippingCartTotal" which calculates the total due to the shop.
 */
+
+newExercise(12);
 
 let shoppingCart = [
   {
@@ -225,6 +254,8 @@ In your eCommerce you have an array of objects called shoppingCart. In this arra
 Create a function "addToShoppingCart" which receives a new object, adds it to shoppingCart and returns the total number of items in the shoppingCart.
 */
 
+newExercise(13);
+
 const addToShoppingCart = function (object) {
   let newItem = object;
   shoppingCart.push(newItem);
@@ -244,6 +275,8 @@ In your eCommerce you have an array of objects called shoppingCart. In this arra
 Create a function "maxShoppingCart" which receives the shoppingCart array and returns the most expensive item in the array.
 */
 
+newExercise(14);
+
 const maxShoppingCart = function (array) {
   let mostExpensiveItem = array[0];
   for (i = 0; i < array.length; i++) {
@@ -261,6 +294,8 @@ In your eCommerce you have an array of objects called shoppingCart. In this arra
 Create a function "latestShoppingCart" which receives the shoppingCart array and returns the last item.
 */
 
+newExercise(15);
+
 const latestShoppingCart = function (array) {
   return array.slice(-1);
 };
@@ -272,20 +307,60 @@ Create a function "loopUntil" which receives an integer x between 0 and 9.
 The function loops and prints a random number between 0 and 9 until the random number is bigger than x for three times in a row.
 */
 
+newExercise(16);
+
 // const loopUntil = function (x) {
-//   if(x > 0 && x < 9){
+//   if (x > 0 && x < 9) {
 //     for (i = 0; i < x; i++) {
 //       let randomNumber = Math.floor(Math.random() * 10);
 //       console.log(randomNumber);
+//       for (i = 0; i < x; i++) {
+//         let randomNumber = Math.floor(Math.random() * 10);
+//         console.log(randomNumber);
+//         for (i = 0; i < x; i++) {
+//           let randomNumber = Math.floor(Math.random() * 10);
+//           console.log(randomNumber);
+//         }
+//       }
 //     }
-//   }else{
-//     return `Please enter number one and nine`
+//   } else {
+//     return `Please enter number between one and nine`;
 //   }
+// };
+
+// const loopUntil = function (x) {
+//   while (true) {
+//     let currentNumber1 = Math.floor(Math.random() * 10);
+//     console.log(currentNumber1);
+//     if (currentNumber1 > x) {
+//       let currentNumber2 = Math.floor(Math.random() * 10);
+//       console.log(currentNumber2);
+//       if (currentNumber2 > x) {
+//         let currentNumber3 = Math.floor(Math.random() * 10);
+//         console.log(currentNumber3);
+//         console.log("Cycle is finished");
+//         break;
+//       }
+//     }
 //   }
+// };
+
+const loopUntil = function (x) {
+  let randomNumber = Math.floor(Math.random() * 10);
+  console.log(randomNumber);
+  while (randomNumber < x) {
+    randomNumber = Math.floor(Math.random() * 10);
+    console.log(randomNumber);
+  }
+};
+
+// loopUntil(3);
 
 /* EXERCISE 17
 Write a function "average" which receives an array and return the average value. The function automatically skips non-numeric entries in the array.
 */
+
+newExercise(17);
 
 const average = function (array) {
   let totalSum = 0;
@@ -305,6 +380,8 @@ const average = function (array) {
 Write a function "longest" to find the longest string from an given array of strings.
 */
 
+newExercise(18);
+
 const longest = function (array) {
   let longest = "";
   for (i = 0; i < array.length; i++) {
@@ -321,6 +398,21 @@ const longest = function (array) {
 Write a function to create a very simple anti spam filter for your mailbox. The function takes a string emailContent, and returns a boolean.
 Check if the email is valid using string methods. The email (in this example) is valid if the words SPAM and SCAM does not appear.
 */
+
+const isEmailSpam = function (emailContent) {
+  emailContent = emailContent.toUpperCase();
+  if (emailContent.includes("SCAM") || emailContent.includes("SPAM")) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+// console.log(isEmailSpam("hello spam ello"));
+// console.log(isEmailSpam("hello Spam ello"));
+// console.log(isEmailSpam("scam spam ellospamello"));
+// console.log(isEmailSpam("sCam"));
+// console.log(isEmailSpam("safe"));
 
 /* EXERCISE 20
 Write a function that receives a date d as parameter and calculates the number of days passes since the d.
