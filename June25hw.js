@@ -236,7 +236,7 @@ const addToShoppingCart = function (object) {
 };
 
 // console.log(
-//   addToShoppingCart({ price: 102, name: "lamp", id: "4444", quantity: 13 })
+// addToShoppingCart({ price: 102, name: "lamp", id: "4444", quantity: 13 });
 // );
 
 /* EXERCISE 14
@@ -261,18 +261,61 @@ In your eCommerce you have an array of objects called shoppingCart. In this arra
 Create a function "latestShoppingCart" which receives the shoppingCart array and returns the last item.
 */
 
+const latestShoppingCart = function (array) {
+  return array.slice(-1);
+};
+
+// console.log(latestShoppingCart(shoppingCart));
+
 /* EXERCISE 16
 Create a function "loopUntil" which receives an integer x between 0 and 9.
 The function loops and prints a random number between 0 and 9 until the random number is bigger than x for three times in a row.
 */
 
+// const loopUntil = function (x) {
+//   if(x > 0 && x < 9){
+//     for (i = 0; i < x; i++) {
+//       let randomNumber = Math.floor(Math.random() * 10);
+//       console.log(randomNumber);
+//     }
+//   }else{
+//     return `Please enter number one and nine`
+//   }
+//   }
+
 /* EXERCISE 17
 Write a function "average" which receives an array and return the average value. The function automatically skips non-numeric entries in the array.
 */
 
+const average = function (array) {
+  let totalSum = 0;
+  let averageCounter = 0;
+  for (i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      totalSum += array[i];
+      averageCounter++;
+    }
+  }
+  return totalSum / averageCounter;
+};
+
+// console.log(average([1, 2, 2, 3, 7]));
+
 /* EXERCISE 18
 Write a function "longest" to find the longest string from an given array of strings.
 */
+
+const longest = function (array) {
+  let longest = "";
+  for (i = 0; i < array.length; i++) {
+    if (array[i].length > longest.length) {
+      longest = array[i];
+    }
+  }
+  return longest;
+};
+
+// console.log(longest(["cat", "ddsd", "dog"]));
 
 /* EXERCISE 19
 Write a function to create a very simple anti spam filter for your mailbox. The function takes a string emailContent, and returns a boolean.
