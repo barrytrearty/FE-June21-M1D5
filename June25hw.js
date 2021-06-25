@@ -225,12 +225,36 @@ In your eCommerce you have an array of objects called shoppingCart. In this arra
 Create a function "addToShoppingCart" which receives a new object, adds it to shoppingCart and returns the total number of items in the shoppingCart.
 */
 
-const addToShoppingCart = function () {};
+const addToShoppingCart = function (object) {
+  let newItem = object;
+  shoppingCart.push(newItem);
+  let totalItems = 0;
+  for (item of shoppingCart) {
+    totalItems += item.quantity;
+  }
+  return totalItems;
+};
+
+// console.log(
+//   addToShoppingCart({ price: 102, name: "lamp", id: "4444", quantity: 13 })
+// );
 
 /* EXERCISE 14
 In your eCommerce you have an array of objects called shoppingCart. In this array you have a number of objects with a price, a name, an id and the quantity to be shipped.
 Create a function "maxShoppingCart" which receives the shoppingCart array and returns the most expensive item in the array.
 */
+
+const maxShoppingCart = function (array) {
+  let mostExpensiveItem = array[0];
+  for (i = 0; i < array.length; i++) {
+    if (array[i].price > mostExpensiveItem.price) {
+      mostExpensiveItem = array[i];
+    }
+  }
+  return mostExpensiveItem;
+};
+
+// console.log(maxShoppingCart(shoppingCart));
 
 /* EXERCISE 15
 In your eCommerce you have an array of objects called shoppingCart. In this array you have a number of objects with a price, a name, an id and the quantity to be shipped.
