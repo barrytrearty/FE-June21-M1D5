@@ -345,16 +345,88 @@ newExercise(16);
 //   }
 // };
 
+// const loopUntil = function (x) {
+//   let randomNumber;
+//   do {
+//     randomNumber = Math.floor(Math.random() * 10);
+//     console.log(randomNumber);
+//   } while (randomNumber <= x);
+//   {
+//     randomNumber = Math.floor(Math.random() * 10);
+//     console.log(randomNumber);
+//   }
+//   if (randomNumber > x) {
+//     let randomNumber2 = Math.floor(Math.random() * 10);
+//     console.log(randomNumber2);
+//     while (randomNumber2 <= x) {
+//       randomNumber2 = Math.floor(Math.random() * 10);
+//       console.log(randomNumber2);
+//     }
+//   }
+// };
+
+// const loopUntil = function (x) {
+//   for (let i = 0; i < x; i++) {
+//     let randomNumber = Math.floor(Math.random() * 10);
+//     console.log(randomNumber);
+//     if (randomNumber > x) {
+//       break;
+//     }
+//   }
+// };
+
 const loopUntil = function (x) {
-  let randomNumber = Math.floor(Math.random() * 10);
-  console.log(randomNumber);
-  while (randomNumber < x) {
-    randomNumber = Math.floor(Math.random() * 10);
-    console.log(randomNumber);
+  let firstCondition = false;
+  let secondCondition = false;
+  let thirdCondition = false;
+  let randomNumber1;
+  let randomNumber2;
+  let randomNumber3;
+  while (
+    firstCondition == false &&
+    secondCondition == false &&
+    thirdCondition == false
+  ) {
+    randomNumber1 = Math.floor(Math.random() * 10);
+    console.log(randomNumber1);
+    if (randomNumber1 > x) {
+      firstCondition = true;
+      while (
+        firstCondition == true &&
+        secondCondition == false &&
+        thirdCondition == false
+      ) {
+        randomNumber2 = Math.floor(Math.random() * 10);
+        console.log(randomNumber2);
+        if (randomNumber2 <= x) {
+          firstCondition = false;
+        } else {
+          secondCondition = true;
+        }
+        while (
+          firstCondition == true &&
+          secondCondition == true &&
+          thirdCondition == false
+        ) {
+          randomNumber3 = Math.floor(Math.random() * 10);
+          console.log(randomNumber3);
+          if (randomNumber3 > x) {
+            thirdCondition = true;
+          } else {
+            firstCondition = false;
+            secondCondition = false;
+            thirdCondition = false;
+          }
+        }
+      }
+    }
   }
 };
-
-// loopUntil(3);
+// loopUntil(1)
+// loopUntil(2)
+// loopUntil(5)
+// loopUntil(7)
+// loopUntil(8);
 
 /* EXERCISE 17
 Write a function "average" which receives an array and return the average value. The function automatically skips non-numeric entries in the array.
@@ -417,6 +489,9 @@ const isEmailSpam = function (emailContent) {
 /* EXERCISE 20
 Write a function that receives a date d as parameter and calculates the number of days passes since the d.
 */
+
+let today = new Date();
+console.log(today);
 
 /* EXERCISE 21
 Write a function "matrixGenerator" that receives x and y as parameter. The result should be a matrix of x times y with, as value, the index of the position.
