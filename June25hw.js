@@ -398,10 +398,10 @@ const loopUntil = function (x) {
       ) {
         randomNumber2 = Math.floor(Math.random() * 10);
         console.log(randomNumber2);
-        if (randomNumber2 <= x) {
-          firstCondition = false;
-        } else {
+        if (randomNumber2 > x) {
           secondCondition = true;
+        } else {
+          firstCondition = false;
         }
         while (
           firstCondition == true &&
@@ -421,6 +421,7 @@ const loopUntil = function (x) {
       }
     }
   }
+  return `Loop complete`;
 };
 // loopUntil(1)
 // loopUntil(2)
@@ -490,8 +491,88 @@ const isEmailSpam = function (emailContent) {
 Write a function that receives a date d as parameter and calculates the number of days passes since the d.
 */
 
-let today = new Date();
-console.log(today);
+newExercise(20);
+
+const today = new Date();
+const todayDate = [today.getDate(), today.getMonth() + 1, today.getFullYear()];
+
+const daysPassed = function (date) {
+  // Create array
+  let dateArray = [];
+  if (date.includes("-")) {
+    dateArray = date.split("-").map(Number);
+  }
+  if (date.includes(".")) {
+    dateArray = date.split(".").map(Number);
+  }
+  if (date.includes("/")) {
+    dateArray = date.split("/").map(Number);
+  }
+
+  // position of day in the year function
+  const getDayoftheYear = function (array) {
+    let dayOfTheYear;
+    if (array[1] == 1) {
+      dayOfTheYear = array[0];
+    }
+    if (array[1] == 2) {
+      dayOfTheYear = array[0] + 31;
+    }
+    if (array[1] == 3) {
+      dayOfTheYear = array[0] + 59;
+    }
+    if (array[1] == 4) {
+      dayOfTheYear = array[0] + 90;
+    }
+    if (array[1] == 5) {
+      dayOfTheYear = array[0] + 120;
+    }
+    if (array[1] == 6) {
+      dayOfTheYear = array[0] + 151;
+    }
+    if (array[1] == 7) {
+      dayOfTheYear = array[0] + 181;
+    }
+    if (array[1] == 8) {
+      dayOfTheYear = array[0] + 212;
+    }
+    if (array[1] == 9) {
+      dayOfTheYear = array[0] + 243;
+    }
+    if (array[1] == 10) {
+      dayOfTheYear = array[0] + 273;
+    }
+    if (array[1] == 11) {
+      dayOfTheYear = array[0] + 304;
+    }
+    if (array[1] == 12) {
+      dayOfTheYear = array[0] + 334;
+    }
+    return dayOfTheYear;
+  };
+
+  // function to add leap days
+  const addLeapYears = function (days, year1, year2) {
+    for (i = year1; i <= year2; i++) {
+      if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
+        days++;
+      }
+    }
+    return days;
+  };
+
+  let daysOfFirstYear = 365 - getDayoftheYear(dateArray);
+  let daysOfThisYear = getDayoftheYear(todayDate);
+  let daysInbetween = (todayDate[2] - (dateArray[2] + 1)) * 365;
+  let totalDays = daysOfFirstYear + daysOfThisYear + daysInbetween;
+
+  totalDays = addLeapYears(totalDays, dateArray[2], todayDate[2]);
+  return totalDays;
+};
+
+// console.log(daysPassed("25.02.2012"));
+
+// Doesn't account for when its leap year but leap day hasnt yet occurred or when the date you input is in a leap year but its passed before input date
 
 /* EXERCISE 21
 Write a function "matrixGenerator" that receives x and y as parameter. The result should be a matrix of x times y with, as value, the index of the position.
