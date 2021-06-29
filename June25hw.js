@@ -509,7 +509,7 @@ const daysPassed = function (date) {
     dateArray = date.split("/").map(Number);
   }
 
-  // position of day in the year function
+  // Position of day in the year function
   const getDayoftheYear = function (array) {
     let dayOfTheYear;
     if (array[1] == 1) {
@@ -552,8 +552,10 @@ const daysPassed = function (date) {
   };
 
   // function to add leap days
-  const addLeapYears = function (days, year1, year2) {
-    for (i = year1; i <= year2; i++) {
+  const addLeapYearsForWholeYears = function (days, array1, array2) {
+    let year1 = array1[2] + 1;
+    let year2 = array2[2];
+    for (i = year1; i < year2; i++) {
       if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
         days++;
       }
@@ -561,16 +563,42 @@ const daysPassed = function (date) {
     return days;
   };
 
+  const addLeapYearsForNotWholeYears = function (days, array1, array2) {
+    let earliestYear = array1[2];
+    let latestYear = array2[2];
+    let earliestYearDay = getDayoftheYear(array1);
+    let latestYearDay = getDayoftheYear(array2);
+    let marchFirst = getDayoftheYear([1, 3]);
+    if (
+      ((earliestYear % 4 == 0 && earliestYear % 100 != 0) ||
+        earliestYear % 400 == 0) &&
+      earliestYearDay < marchFirst
+    ) {
+      days++;
+    }
+    if (
+      ((latestYear % 4 == 0 && latestYear % 100 != 0) ||
+        latestYear % 400 == 0) &&
+      latestYearDay >= marchFirst
+    ) {
+      days++;
+    }
+    return days;
+  };
+
+  // Variables
   let daysOfFirstYear = 365 - getDayoftheYear(dateArray);
   let daysOfThisYear = getDayoftheYear(todayDate);
   let daysInbetween = (todayDate[2] - (dateArray[2] + 1)) * 365;
   let totalDays = daysOfFirstYear + daysOfThisYear + daysInbetween;
 
-  totalDays = addLeapYears(totalDays, dateArray[2], todayDate[2]);
+  // Calculation of days
+  totalDays = addLeapYearsForWholeYears(totalDays, dateArray, todayDate);
+  totalDays = addLeapYearsForNotWholeYears(totalDays, dateArray, todayDate);
   return totalDays;
 };
 
-// console.log(daysPassed("25.02.2012"));
+console.log(daysPassed("25.02.2012"));
 
 // Doesn't account for when its leap year but leap day hasnt yet occurred or when the date you input is in a leap year but its passed before input date
 
@@ -580,3 +608,17 @@ Ex.: X = 3, Y = 2
 ["00","01","02"
 "10","11","12"]
 */
+
+newExercise(21);
+
+const matrixGenerator = function (x, y) {
+  let print = "";
+  for (i = 0; i < x; i++) {
+    console.log(print);
+    for (j = 0; j < y; j++) {
+      console.log(print);
+    }
+  }
+};
+
+// matrixGenerator(3, 2);
